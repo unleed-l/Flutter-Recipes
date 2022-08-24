@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '../models/category.dart';
+
 class CategoriesRecipesScreen extends StatelessWidget {
   const CategoriesRecipesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final category = ModalRoute.of(context)?.settings.arguments as Category;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Receitas',
+        title: Text(
+          category.title,
         ),
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'Receitas por Categoria',
+          'Receitas por Categoria ${category.id}',
         ),
       ),
     );

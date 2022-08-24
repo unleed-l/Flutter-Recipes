@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals/screens/categories_recipes_screen.dart';
 import 'screens/categories_screen.dart';
 
 void main() {
@@ -13,7 +14,6 @@ class RecipesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Vamos Cozinhar?',
-      home: const CategoriesScreen(),
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
           primary: Colors.pink,
@@ -32,6 +32,10 @@ class RecipesApp extends StatelessWidget {
           ),
         ),
       ),
+      home: const CategoriesScreen(),
+      routes: {
+        '/categories-recipes': (ctx) => CategoriesRecipesScreen(),
+      },
     );
   }
 }
