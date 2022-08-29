@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:meals/utils/app_routes.dart';
 import '../models/category.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -9,7 +10,7 @@ class CategoryItem extends StatelessWidget {
 
   void _selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(
-      '/categories-recipes',
+      AppRoutes.categoriesRecipes,
       arguments: category,
     );
   }
@@ -33,7 +34,7 @@ class CategoryItem extends StatelessWidget {
             end: Alignment.bottomRight,
           ),
         ),
-        child: Text(
+        child: AutoSizeText(
           category.title,
           style: Theme.of(context).textTheme.headline6,
         ),

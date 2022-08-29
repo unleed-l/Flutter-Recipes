@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../data/dummy_data.dart';
 import '../components/category_item.dart';
@@ -10,7 +11,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-          child: Text('Vamos Cozinhar?'),
+          child: AutoSizeText('Vamos Cozinhar?'),
         ),
       ),
       body: Padding(
