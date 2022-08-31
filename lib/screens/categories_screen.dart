@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../data/dummy_data.dart';
 import '../components/category_item.dart';
@@ -8,26 +7,17 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: AutoSizeText('Vamos Cozinhar?'),
-        ),
+    return GridView(
+      padding: const EdgeInsets.all(25),
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 200,
+        childAspectRatio: 3 / 2,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(25),
-        child: GridView(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: 3 / 2,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-          ),
-          children: dummyCategories.map((cat) {
-            return CategoryItem(cat);
-          }).toList(),
-        ),
-      ),
+      children: dummyCategories.map((cat) {
+        return CategoryItem(cat);
+      }).toList(),
     );
   }
 }

@@ -9,9 +9,19 @@ class RecipeItem extends StatelessWidget {
   const RecipeItem(this.recipe, {Key? key}) : super(key: key);
 
   void _selectRecipe(BuildContext context) {
-    Navigator.of(context).pushNamed(
+    Navigator.of(context)
+        .pushNamed(
       AppRoutes.recipeDetail,
       arguments: recipe,
+    )
+        .then(
+      (result) {
+        if (result == null) {
+          print('sem resultado');
+        } else {
+          print('o nome da refeição é $result.');
+        }
+      },
     );
   }
 
