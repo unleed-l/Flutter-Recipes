@@ -4,8 +4,10 @@ import '../models/recipe.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   final Function(Recipe) onFavorite;
+  final bool Function(Recipe) isFavorite;
 
-  const RecipeDetailScreen({super.key, required this.onFavorite});
+  const RecipeDetailScreen(
+      {super.key, required this.onFavorite, required this.isFavorite});
 
   Widget _createSectionTitle(BuildContext context, String title) {
     return Container(
@@ -107,8 +109,8 @@ class RecipeDetailScreen extends StatelessWidget {
         onPressed: () {
           onFavorite(recipe);
         },
-        child: const Icon(
-          Icons.favorite,
+        child: Icon(
+          isFavorite(recipe) ? Icons.favorite : Icons.favorite_border,
         ),
       ),
     );

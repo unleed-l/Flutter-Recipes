@@ -40,16 +40,20 @@ class _RecipesAppState extends State<RecipesApp> {
         }).toList();
       },
     );
+  }
 
-    void _toggleFavorite(Recipe recipe) {
-      setState(
-        () {
-          _favoriteRecipes.contains(recipe)
-              ? _favoriteRecipes.remove(recipe)
-              : _favoriteRecipes.add(recipe);
-        },
-      );
-    }
+  void _toggleFavorite(Recipe recipe) {
+    setState(
+      () {
+        _favoriteRecipes.contains(recipe)
+            ? _favoriteRecipes.remove(recipe)
+            : _favoriteRecipes.add(recipe);
+      },
+    );
+  }
+
+  bool _isFavorite(Recipe recipe) {
+    return _favoriteRecipes.contains(recipe);
   }
 
   @override
@@ -81,8 +85,10 @@ class _RecipesAppState extends State<RecipesApp> {
         AppRoutes.home: (ctx) => TabsScreen(favoriteRecipes: _favoriteRecipes),
         AppRoutes.categoriesRecipes: (ctx) =>
             CategoriesRecipesScreen(_availableRecipes),
-        AppRoutes.recipeDetail: (ctx) =>
-            RecipeDetailScreen(onFavorite: _toggleFavorite(recipe)),
+        AppRoutes.recipeDetail: (ctx) => RecipeDetailScreen(
+              onFavorite: _toggleFavorite,
+              isFavorite: _isFavorite,
+            ),
         AppRoutes.settings: (ctx) => SettingsScreen(
               filters: filters,
               onFiltersChanged: _filterRecipes,

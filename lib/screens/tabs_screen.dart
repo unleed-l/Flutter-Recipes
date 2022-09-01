@@ -29,7 +29,7 @@ class _TabsScreenState extends State<TabsScreen> {
       {
         'title': 'Meus Favoritos',
         'screen': FavoriteScreen(
-          favoriteRecipes: widget.favoriteRecipes,
+          widget.favoriteRecipes,
         ),
       },
     ];
